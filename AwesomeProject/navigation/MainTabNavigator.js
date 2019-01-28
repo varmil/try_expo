@@ -1,16 +1,19 @@
-import React from 'react';
-import { Platform } from 'react-native';
-import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
+import React from 'react'
+import { Platform } from 'react-native'
+import {
+  createStackNavigator,
+  createBottomTabNavigator
+} from 'react-navigation'
 
-import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
-import SwipeableTabScreen from '../screens/SwipeableTabScreen';
+import TabBarIcon from '../components/TabBarIcon'
+import HomeScreen from '../screens/HomeScreen'
+import LinksScreen from '../screens/LinksScreen'
+import SettingsScreen from '../screens/SettingsScreen'
+import SwipeableTabScreen from '../screens/SwipeableTabScreen'
 
 const HomeStack = createStackNavigator({
-  Home: HomeScreen,
-});
+  Home: HomeScreen
+})
 HomeStack.navigationOptions = {
   tabBarLabel: 'Home',
   tabBarIcon: ({ focused }) => (
@@ -22,12 +25,12 @@ HomeStack.navigationOptions = {
           : 'md-information-circle'
       }
     />
-  ),
-};
+  )
+}
 
 const LinksStack = createStackNavigator({
-  Links: LinksScreen,
-});
+  Links: LinksScreen
+})
 LinksStack.navigationOptions = {
   tabBarLabel: 'Links',
   tabBarIcon: ({ focused }) => (
@@ -35,12 +38,12 @@ LinksStack.navigationOptions = {
       focused={focused}
       name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
     />
-  ),
-};
+  )
+}
 
 const SettingsStack = createStackNavigator({
-  Settings: SettingsScreen,
-});
+  Settings: SettingsScreen
+})
 SettingsStack.navigationOptions = {
   tabBarLabel: 'Settings',
   tabBarIcon: ({ focused }) => (
@@ -48,25 +51,22 @@ SettingsStack.navigationOptions = {
       focused={focused}
       name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'}
     />
-  ),
-};
+  )
+}
 
 const SwipeableTabsStack = createStackNavigator({
-  Settings: SwipeableTabScreen,
-});
+  Settings: SwipeableTabScreen
+})
 SwipeableTabsStack.navigationOptions = {
   tabBarLabel: 'Swipeable',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={'md-options'}
-    />
-  ),
-};
+    <TabBarIcon focused={focused} name={'ios-bookmarks'} />
+  )
+}
 
 export default createBottomTabNavigator({
   HomeStack,
   LinksStack,
   SettingsStack,
-  SwipeableTabsStack,
-});
+  SwipeableTabsStack
+})
