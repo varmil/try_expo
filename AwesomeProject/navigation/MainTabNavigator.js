@@ -6,11 +6,11 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import SwipeableTabScreen from '../screens/SwipeableTabScreen';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
 });
-
 HomeStack.navigationOptions = {
   tabBarLabel: 'Home',
   tabBarIcon: ({ focused }) => (
@@ -28,7 +28,6 @@ HomeStack.navigationOptions = {
 const LinksStack = createStackNavigator({
   Links: LinksScreen,
 });
-
 LinksStack.navigationOptions = {
   tabBarLabel: 'Links',
   tabBarIcon: ({ focused }) => (
@@ -42,7 +41,6 @@ LinksStack.navigationOptions = {
 const SettingsStack = createStackNavigator({
   Settings: SettingsScreen,
 });
-
 SettingsStack.navigationOptions = {
   tabBarLabel: 'Settings',
   tabBarIcon: ({ focused }) => (
@@ -53,8 +51,22 @@ SettingsStack.navigationOptions = {
   ),
 };
 
+const SwipeableTabsStack = createStackNavigator({
+  Settings: SwipeableTabScreen,
+});
+SwipeableTabsStack.navigationOptions = {
+  tabBarLabel: 'Swipeable',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={'md-options'}
+    />
+  ),
+};
+
 export default createBottomTabNavigator({
   HomeStack,
   LinksStack,
   SettingsStack,
+  SwipeableTabsStack,
 });
